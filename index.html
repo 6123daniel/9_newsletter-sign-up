@@ -9,12 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script defer src="validation.js"></script>
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution { font-size: 11px; text-align: center; color: white; }
+    .attribution a { color: hsl(228, 39%, 61%); }
   </style>
 </head>
 <body>
@@ -31,17 +32,21 @@
           <li class="paragraph__listItem">Measuring to ensure updates are a success</li>
           <li class="paragraph__listItem">And much more!</li>
         </ul>
-        <form class="form" action="">
+        <p id="error"></p>
+        <form id="form" action="" novalidate>
           <label class="form__email--label" for="email">Email address</label>
           <br>
           <input class="form__email--input" type="email" name="email" placeholder="email@company.com"></input>
         
-          <button class="form__button">Subscribe to monthly newsletter</button>
+          <button class="button">Subscribe to monthly newsletter</button>
         </form>
       </section>
     </section>
     <section class="container__section section--image">
-      <img src="/assets/images/illustration-sign-up-desktop.svg" alt="desktop windows"/>
+      <picture>
+        <source media="(max-width: 800px)" srcset="assets/images/illustration-sign-up-mobile.svg">
+        <img src="/assets/images/illustration-sign-up-desktop.svg" alt="desktop windows"/>
+      </picture>
     </section>
     
   </main>
@@ -50,10 +55,13 @@
   <!-- Success message start -->
 
   <section class="success">
-    Thanks for subscribing!
-    A confirmation email has been sent to ash@loremcompany.com.
-    Please open it and click the button inside to confirm your subscription.
-    Dismiss message
+    <img class="successImg" src="/assets/images/icon-success.svg"/>
+    <h1>Thanks for subscribing!</h1>
+    <p>
+      A confirmation email has been sent to <span id="emailSpan"></span>.
+      Please open it and click the button inside to confirm your subscription.
+    </p>
+    <button class="button button--dismiss">Dismiss message</button>
   </section>
 
   <!-- Success message end -->
